@@ -1,0 +1,24 @@
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js 16.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install Dependencies and Generate Prisma
+        run: |
+          cd server-test-backend
+          npm install
+          npx prisma generate
+
+      - name: Run tests
+        run: cd server-test-backend && npm run test
