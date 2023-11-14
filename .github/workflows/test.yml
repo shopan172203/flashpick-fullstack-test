@@ -6,6 +6,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      JSON_TOKEN_KEY: 'myvariablevalue'
+
     steps:
       - uses: actions/checkout@v2
 
