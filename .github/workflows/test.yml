@@ -18,6 +18,10 @@ jobs:
         run: |
           cd server-test-backend
           npm install
+
+      - name: Install Dependencies and Generate Prisma
+        run: |
+          cd server-test-backend/apps/auth
           npx prisma generate
 
       - name: Run tests
